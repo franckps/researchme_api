@@ -1,3 +1,3 @@
 export interface TokenGenerator {
-    async generate (id: string): Promise<string>
+    generate (id: string): Promise<string>
 }
