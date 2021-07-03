@@ -1,3 +1,3 @@
-export default interface UpdateAccessTokenRepository {
+export interface UpdateAccessTokenRepository {
     update (id: string, token: string): Promise<void>
 }
