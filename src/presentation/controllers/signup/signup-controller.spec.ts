@@ -92,7 +92,7 @@ describe('Signup Controller', () => {
   test('Should return 200 if valid data is provider', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(makeFakeRequest())
-    expect(httpResponse).toEqual(ok(makeFakeAccount()))
+    expect(httpResponse).toEqual(ok({ accessToken: 'any_token' }))
   })
 
   test('Should call Validation with correct values', async () => {
@@ -101,12 +101,6 @@ describe('Signup Controller', () => {
     const httpRequest = makeFakeRequest()
     await sut.handle(httpRequest)
     expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
-  })
-
-  test('Should return 200 if valid data is provider', async () => {
-    const { sut } = makeSut()
-    const httpResponse = await sut.handle(makeFakeRequest())
-    expect(httpResponse).toEqual(ok(makeFakeAccount()))
   })
 
   test('Should return 400 if Validation returns an error', async () => {
