@@ -33,6 +33,10 @@
   },
   "scripts": {
     "dev": "ts-node-dev src/main/server.ts",
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
+    "up": "npm run build && docker-compose up -d",
+    "down": "docker-compose down",
     "start": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --no-cache",
     "test:verbose": "jest --passWithNoTests --watch --runInBand",
@@ -47,6 +51,7 @@
     "fast-glob": "^3.2.5",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
+    "nodemon": "^2.0.13",
     "validator": "^13.6.0"
   }
 }

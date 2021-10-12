@@ -2,11 +2,13 @@
   "compilerOptions": {
     "target": "es2018",
     "module": "commonjs",
-    "outDir": "./dist",   
-    "rootDir": "./",  
+    "outDir": "./dist",
+    "baseUrl": "src",
+    "rootDir": "./src",
     "esModuleInterop": true,
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": ["src"]
 }
