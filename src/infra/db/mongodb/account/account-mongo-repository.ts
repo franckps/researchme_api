@@ -7,10 +7,6 @@ import { UpdateAccessTokenRepository } from '../../../../data/protocols/db/accou
 import { LoadAccountByTokenRepository } from 'data/protocols/db/account/load-account-by-token-repository'
 
 export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByTokenRepository {
-  async load (accessToken: string, role?: string): Promise<AccountModel> {
-    throw new Error('Method not implemented.')
-  }
-
   async add (accountData: AddAccountModel): Promise<AccountModel> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(accountData)
