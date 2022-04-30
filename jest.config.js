@@ -1,7 +1,12 @@
 module.exports = {
   roots: ["<rootDir>/src"],
   clearMocks: true,
-  collectCoverageFrom: ["<rootDir>/src/**/*.ts", "!<rootDir>/src/main/**"],
+  collectCoverageFrom: [
+    "<rootDir>/src/**/*.ts",
+    "!<rootDir>/src/main/**",
+    "!<rootDir>/src/**/*-protocols.ts",
+    "!<rootDir>/src/**/protocols/**",
+  ],
   coverageDirectory: "coverage",
   coverageProvider: "babel",
   testEnvironment: "node",
