@@ -17,7 +17,7 @@ describe('Login Routes', () => {
 
   beforeEach(async () => {
     accountCollection = await MongoHelper.getCollection('accounts')
-    accountCollection.deleteMany({})
+    await accountCollection.deleteMany({})
   })
 
   describe('POST /signup', () => {

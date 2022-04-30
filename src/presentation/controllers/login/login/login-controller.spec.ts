@@ -23,9 +23,9 @@ const makeValidation = (): Validation => {
 }
 
 interface sutTypes {
-    sut: LoginController,
-    authenticationStub: Authentication,
-    validationStub: Validation
+  sut: LoginController
+  authenticationStub: Authentication
+  validationStub: Validation
 }
 
 const makeSut = (): sutTypes => {

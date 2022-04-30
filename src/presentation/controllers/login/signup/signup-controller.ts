@@ -4,7 +4,7 @@ import { EmailInUseError } from '../../../errors'
 
 export class SignUpController implements Controller {
   constructor (
-    private readonly addAccount: AddAccount, 
+    private readonly addAccount: AddAccount,
     private readonly validation: Validation,
     private readonly authentication: Authentication) {}
 
@@ -22,7 +22,7 @@ export class SignUpController implements Controller {
         password
       })
 
-      if(!account){
+      if (!account) {
         return forbidden(new EmailInUseError())
       }
 

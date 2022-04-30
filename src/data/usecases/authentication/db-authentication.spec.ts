@@ -59,8 +59,8 @@ const makeUpdateAccessTokenRepository = (): UpdateAccessTokenRepository => {
 interface SutTypes {
   sut: DbAuthentication
   loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository
-  hashComparerStub: HashComparer,
-  encrypterStub: Encrypter,
+  hashComparerStub: HashComparer
+  encrypterStub: Encrypter
   updateAccessTokenRepositoryStub: UpdateAccessTokenRepository
 }
 

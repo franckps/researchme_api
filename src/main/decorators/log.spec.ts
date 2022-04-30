@@ -5,9 +5,9 @@ import { LogErrorRepository } from '../../data/protocols/db/log/log-error-reposi
 import { AccountModel } from '../../domain/models/account'
 
 interface SutTypes {
-    sut: LogControllerDecorator,
-    controllerStub: Controller,
-    logErrorRepositoryStub: LogErrorRepository
+  sut: LogControllerDecorator
+  controllerStub: Controller
+  logErrorRepositoryStub: LogErrorRepository
 }
 
 const makeController = (): Controller => {

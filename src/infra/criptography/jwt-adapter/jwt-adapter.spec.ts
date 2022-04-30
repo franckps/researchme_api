@@ -8,7 +8,7 @@ jest.mock('jsonwebtoken', () => ({
 
   async verify (): Promise<string> {
     return new Promise(resolve => resolve('any_value'))
-  },
+  }
 }))
 
 const makeSut = (): JwtAdapter => {

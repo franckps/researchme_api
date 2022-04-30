@@ -15,7 +15,7 @@ describe('Account Mongo Repository', () => {
 
   beforeEach(async () => {
     accountCollection = await MongoHelper.getCollection('accounts')
-    accountCollection.deleteMany({})
+    await accountCollection.deleteMany({})
   })
 
   const makeSut = (): AccountMongoRepository => {
@@ -118,7 +118,7 @@ describe('Account Mongo Repository', () => {
         name: 'any_name',
         email: 'any_email@mail.com',
         password: 'any_password',
-        accessToken: 'any_token',
+        accessToken: 'any_token'
       })
       const account = await sut.loadByToken('any_token', 'admin')
 

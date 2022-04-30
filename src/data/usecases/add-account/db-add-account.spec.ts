@@ -43,8 +43,8 @@ const makeFakeAccountData = (): AddAccountModel => ({
 
 interface SutTypes {
   sut: DbAddAccount
-  hasherStub: Hasher,
-  loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository,
+  hasherStub: Hasher
+  loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository
   addAccountRepositoryStub: AddAccountRepository
 }
 

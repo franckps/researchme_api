@@ -3,7 +3,7 @@ import { badRequest, ok, serverError, unauthorized } from '../../../helpers/http
 
 export class LoginController implements Controller {
   constructor (
-    private readonly authentication: Authentication, 
+    private readonly authentication: Authentication,
     private readonly validation: Validation
   ) {}
 

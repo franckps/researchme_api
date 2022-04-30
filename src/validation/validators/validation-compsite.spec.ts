@@ -3,8 +3,8 @@ import { Validation } from '../../presentation/protocols'
 import { ValidationComposite } from './validation-composite'
 
 interface SutTypes {
-    sut: ValidationComposite,
-    validationStubs: Validation[]
+  sut: ValidationComposite
+  validationStubs: Validation[]
 }
 
 const makeValidation = (): Validation => {
