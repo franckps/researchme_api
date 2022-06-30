@@ -1,18 +1,15 @@
 import { DbAddSurvey } from './db-add-survey'
-import { AddSurveyRepository, AddSurveyModel } from './db-add-survey-protocols'
+import { AddSurveyModel, AddSurveyRepository } from './db-add-survey-protocols'
+import MockDate from 'mockdate'
 
-const makeFakeSurveyData = (): {question: string, answers: [{image: string, answer: string}]} => ({
+const makeFakeSurveyData = (): AddSurveyModel => ({
   question: 'any_question',
   answers: [{
     image: 'any_image',
     answer: 'any_answer'
-  }]
+  }],
+  date: new Date()
 })
-
-interface SutTypes {
-  sut: DbAddSurvey
-  addSurveyRepositoryStub: AddSurveyRepository
-}
 
 const makeAddSurveyRepository = (): AddSurveyRepository => {
   class AddSurveyRepositoryStub implements AddSurveyRepository {
@@ -21,6 +18,11 @@ const makeAddSurveyRepository = (): AddSurveyRepository => {
     }
   }
   return new AddSurveyRepositoryStub()
+}
+
+interface SutTypes {
+  sut: DbAddSurvey
+  addSurveyRepositoryStub: AddSurveyRepository
 }
 
 const makeSut = (): SutTypes => {
@@ -32,7 +34,15 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('DbaddSurvey Usecase', () => {
+describe('DbAddSurvey Usecase', () => {
+  beforeAll(() => {
+    MockDate.set(new Date())
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
+
   test('Should call AddSurveyRepository with correct values', async () => {
     const { sut, addSurveyRepositoryStub } = makeSut()
     const addSpy = jest.spyOn(addSurveyRepositoryStub, 'add')
@@ -41,10 +51,9 @@ describe('DbaddSurvey Usecase', () => {
     expect(addSpy).toHaveBeenCalledWith(surveyData)
   })
 
-  test('Should throw if AddAccountRepository throws', async () => {
+  test('Should throw if AddSurveyRepository throws', async () => {
     const { sut, addSurveyRepositoryStub } = makeSut()
-    jest.spyOn(addSurveyRepositoryStub, 'add')
-      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest.spyOn(addSurveyRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
     const promise = sut.add(makeFakeSurveyData())
     await expect(promise).rejects.toThrow()
   })
