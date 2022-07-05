@@ -1,3 +1,6 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable quotes */
+/* eslint-disable semi */
 module.exports = {
   roots: ["<rootDir>/src"],
   clearMocks: true,
@@ -13,5 +16,8 @@ module.exports = {
   preset: "@shelf/jest-mongodb",
   transform: {
     ".+\\.ts$": "ts-jest",
+  },
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1",
   },
 };

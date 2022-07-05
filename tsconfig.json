@@ -7,6 +7,9 @@
     "rootDir": "src",
     "esModuleInterop": true,
     "sourceMap": true,
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["src"]
 }
