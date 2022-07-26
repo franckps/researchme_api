@@ -2,22 +2,23 @@
 /* eslint-disable quotes */
 /* eslint-disable semi */
 module.exports = {
-  roots: ["<rootDir>/src"],
+  roots: ['<rootDir>/src'],
   clearMocks: true,
   collectCoverageFrom: [
-    "<rootDir>/src/**/*.ts",
-    "!<rootDir>/src/main/**",
-    "!<rootDir>/src/**/*-protocols.ts",
-    "!<rootDir>/src/**/protocols/**",
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/main/**',
+    '!<rootDir>/src/**/*protocols*',
+    '!<rootDir>/src/**/protocols/**',
+    '!**/test/**',
   ],
-  coverageDirectory: "coverage",
-  coverageProvider: "babel",
-  testEnvironment: "node",
-  preset: "@shelf/jest-mongodb",
+  coverageDirectory: 'coverage',
+  coverageProvider: 'babel',
+  testEnvironment: 'node',
+  preset: '@shelf/jest-mongodb',
   transform: {
-    ".+\\.ts$": "ts-jest",
+    '.+\\.ts$': 'ts-jest',
   },
   moduleNameMapper: {
-    "@/(.*)": "<rootDir>/src/$1",
+    '@/(.*)': '<rootDir>/src/$1',
   },
 };
