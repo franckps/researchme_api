@@ -1,6 +1,6 @@
 {
   "name": "researchme_api",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
