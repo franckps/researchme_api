@@ -1,22 +1,10 @@
-import {
-  SurveyResultModel,
-  LoadSurveyResultRepository,
-} from './db-load-survey-result-protocols';
+import { LoadSurveyResultRepository } from './db-load-survey-result-protocols';
 import { DbLoadSurveyResult } from './db-save-survey-result';
-import { mockSurveyResultModel } from '@/domain/test';
+import { mockLoadSurveyResultRepository } from '@/data/test';
 
 type SutTypes = {
   sut: DbLoadSurveyResult;
   loadSurveyResultRepositoryStub: LoadSurveyResultRepository;
-};
-
-const mockLoadSurveyResultRepository = (): LoadSurveyResultRepository => {
-  class LoadSurveyResultRepositoryStub implements LoadSurveyResultRepository {
-    async loadBySurveyId(surveyId: string): Promise<SurveyResultModel> {
-      return Promise.resolve(mockSurveyResultModel());
-    }
-  }
-  return new LoadSurveyResultRepositoryStub();
 };
 
 const makeSut = (): SutTypes => {

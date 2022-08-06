@@ -6,7 +6,7 @@ import {
   mockSurveyResultModel,
   throwError,
 } from '@/domain/test';
-import { mockSaveSurveyResultRepository } from '@/data/test/mock-db-survey-result';
+import { mockSaveSurveyResultRepository } from '@/data/test';
 
 type SutTypes = {
   sut: DbSaveSurveyResult;
