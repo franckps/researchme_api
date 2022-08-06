@@ -1,5 +1,5 @@
 import { LoadSurveyResultRepository } from './db-load-survey-result-protocols';
-import { DbLoadSurveyResult } from './db-save-survey-result';
+import { DbLoadSurveyResult } from './db-load-survey-result';
 import { mockLoadSurveyResultRepository } from '@/data/test';
 
 type SutTypes = {
