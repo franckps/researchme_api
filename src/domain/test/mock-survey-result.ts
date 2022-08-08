@@ -5,19 +5,19 @@ import {
 import { AddSurveyParams } from '../usecases/survey/add-survey';
 
 export const mockSurveyResultModel = (): SurveyResultModel => ({
-  surveyId: 'any_surveyId',
+  surveyId: 'any_id',
   question: 'any_question',
   answers: [
     {
       answer: 'any_answer',
-      count: 1,
-      percent: 50,
+      count: 0,
+      percent: 0,
     },
     {
       answer: 'other_answer',
       image: 'any_image',
-      count: 10,
-      percent: 80,
+      count: 0,
+      percent: 0,
     },
   ],
   date: new Date(),
