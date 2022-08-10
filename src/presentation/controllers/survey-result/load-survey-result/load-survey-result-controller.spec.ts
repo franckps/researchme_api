@@ -1,7 +1,9 @@
-import { throwError } from '@/domain/test';
+import MockDate from 'mockdate';
+import { mockSurveyResultModel, throwError } from '@/domain/test';
 import { InvalidParamError } from '@/presentation/errors';
 import {
   forbidden,
+  ok,
   serverError,
 } from '@/presentation/helpers/http/http-helper';
 import { mockLoadSurveyById, mockLoadSurveyResult } from '@/presentation/test';
@@ -33,6 +35,14 @@ const makeSut = (): SutTypes => {
 };
 
 describe('LoadSurveyResult controller', () => {
+  beforeAll(() => {
+    MockDate.set(new Date());
+  });
+
+  afterAll(() => {
+    MockDate.reset();
+  });
+
   test('Should call LoadSurveyById with correct value', async () => {
     const { sut, loadSurveyByIdStub } = makeSut();
     const loadByIdSpy = jest.spyOn(loadSurveyByIdStub, 'loadById');
@@ -70,5 +80,11 @@ describe('LoadSurveyResult controller', () => {
     jest.spyOn(loadSurveyResultStub, 'load').mockImplementationOnce(throwError);
     const httpResponse = await sut.handle(makeFakeRequest());
     expect(httpResponse).toEqual(serverError(new Error()));
+  });
+
+  test('Should return 200 on success', async () => {
+    const { sut } = makeSut();
+    const httpResponse = await sut.handle(makeFakeRequest());
+    expect(httpResponse).toEqual(ok(mockSurveyResultModel()));
   });
 });
